@@ -1088,6 +1088,7 @@ class ChatGLMForConditionalGeneration(ChatGLMPreTrainedModel):
         if generation_config is None:
             generation_config = self.generation_config
         generation_config = copy.deepcopy(generation_config)
+        generation_config._eos_token_tensor = None
         model_kwargs = generation_config.update(**kwargs)
         model_kwargs["use_cache"] = generation_config.use_cache
         bos_token_id, eos_token_id = generation_config.bos_token_id, generation_config.eos_token_id
