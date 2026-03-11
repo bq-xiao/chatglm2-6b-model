@@ -287,7 +287,7 @@ class ChatGLMTokenizer(PreTrainedTokenizer):
             split_special_tokens: bool = False,
             **kwargs,
     ) -> BatchEncoding:
-        return super().batch_encode_plus(
+        return super()._batch_encode_plus(
                 batch_text_or_text_pairs=batch_text_or_text_pairs,
                 add_special_tokens=add_special_tokens,
                 padding=padding,
