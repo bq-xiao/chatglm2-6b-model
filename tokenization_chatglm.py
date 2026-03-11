@@ -197,7 +197,6 @@ class ChatGLMTokenizer(PreTrainedTokenizer):
             self,
             encoded_inputs: Union[Dict[str, EncodedInput], BatchEncoding],
             max_length: Optional[int] = None,
-            padding_side: str = "left",
             padding_strategy: PaddingStrategy = PaddingStrategy.DO_NOT_PAD,
             pad_to_multiple_of: Optional[int] = None,
             return_attention_mask: Optional[bool] = None,

@@ -865,10 +865,12 @@ class ChatGLMForConditionalGeneration(ChatGLMPreTrainedModel):
             outputs: ModelOutput,
             model_kwargs: Dict[str, Any],
             is_encoder_decoder: bool = False,
+            standardize_cache_format: bool = False,
     ) -> Dict[str, Any]:
         # update past_key_values
-        cache_name, cache = self._extract_past_from_model_output(outputs)
-        model_kwargs[cache_name] = cache
+        model_kwargs["past_key_values"] = self._extract_past_from_model_output(
+            outputs, standardize_cache_format=standardize_cache_format
+        )
 
         # update attention mask
         if "attention_mask" in model_kwargs:
